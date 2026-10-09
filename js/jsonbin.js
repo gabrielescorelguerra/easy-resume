@@ -33,7 +33,10 @@ async function push() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ resume: S, versions: V }),
     });
-    if (!response.ok) throw new Error(`JSONBin respondeu HTTP ${response.status}`);
+    if (!response.ok) {
+      const detail = await response.text();
+      throw new Error(`API respondeu HTTP ${response.status}: ${detail}`);
+    }
     setSt(`Sincronizado às ${new Date().toLocaleTimeString("pt-BR", { timeStyle: "short" })}`);
   } catch (error) {
     setSt("Erro ao sincronizar; alterações mantidas neste navegador");
@@ -51,7 +54,10 @@ async function pull() {
   try {
     setSt("Carregando dados…");
     const response = await fetch(API_URL);
-    if (!response.ok) throw new Error(`API respondeu HTTP ${response.status}`);
+    if (!response.ok) {
+      const detail = await response.text();
+      throw new Error(`API respondeu HTTP ${response.status}: ${detail}`);
+    }
     const result = await response.json();
     const record = result.record;
     if (record?.resume?.sections) {

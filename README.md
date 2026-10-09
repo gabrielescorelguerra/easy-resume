@@ -26,9 +26,14 @@ Abra `http://localhost:3000` ou a porta indicada.
 ```text
 JSONBIN_BIN_ID=seu-id-do-bin
 JSONBIN_ACCESS_KEY=sua-chave-de-acesso
+JSONBIN_MASTER_KEY=sua-chave-principal
 ```
 
 4. Faça um novo deploy.
+
+Use `JSONBIN_ACCESS_KEY` para uma chave de acesso do bin ou
+`JSONBIN_MASTER_KEY` para a chave principal da conta. Se o JSONBin exigir as
+duas, configure ambas.
 
 O front-end chama `/api/jsonbin`. Essa função serverless lê as credenciais do
 ambiente e é a única parte que se comunica com o JSONBin. O app carrega o

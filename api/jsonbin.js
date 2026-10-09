@@ -8,17 +8,21 @@ export default async function handler(request, response) {
 
   const binId = String(process.env.JSONBIN_BIN_ID || "").trim();
   const accessKey = String(process.env.JSONBIN_ACCESS_KEY || "").trim();
+  const masterKey = String(process.env.JSONBIN_MASTER_KEY || "").trim();
 
-  if (!binId || !accessKey) {
+  if (!binId || (!accessKey && !masterKey)) {
     return response.status(500).json({
-      error: "JSONBIN_BIN_ID e JSONBIN_ACCESS_KEY não configuradas",
+      error:
+        "JSONBIN_BIN_ID e uma chave JSONBin (JSONBIN_ACCESS_KEY ou JSONBIN_MASTER_KEY) são necessárias",
     });
   }
 
   const url = `${JSONBIN_API}/${encodeURIComponent(binId)}${
     request.method === "GET" ? "/latest" : ""
   }`;
-  const headers = { "X-Access-Key": accessKey };
+  const headers = {};
+  if (accessKey) headers["X-Access-Key"] = accessKey;
+  if (masterKey) headers["X-Master-Key"] = masterKey;
   const options = { method: request.method, headers };
 
   if (request.method === "PUT") {
@@ -37,6 +41,9 @@ export default async function handler(request, response) {
     return response.status(upstream.status).send(body);
   } catch (error) {
     console.error("Erro ao comunicar com JSONBin:", error);
-    return response.status(502).json({ error: "Falha ao comunicar com JSONBin" });
+    return response.status(502).json({
+      error: "Falha ao comunicar com JSONBin",
+      detail: error instanceof Error ? error.message : String(error),
+    });
   }
 }
