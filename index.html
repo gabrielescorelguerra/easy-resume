@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <!-- CSP: sem scripts/estilos inline; conexões apenas com o JSONBin configurado. -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.jsonbin.io; object-src 'none'; base-uri 'self'; form-action 'self'"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>Gerador de currículo</title>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/controls.css" />
+    <link rel="stylesheet" href="css/paper.css" />
+    <link rel="stylesheet" href="css/print.css" />
+    <!-- Configuração local do JSONBin (gitignorada). -->
+    <script src="js/config.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="ed" id="ed"></aside>
+      <main class="pv"><article class="paper" id="paper"></article></main>
+    </div>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

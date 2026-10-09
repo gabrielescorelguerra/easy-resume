@@ -1,0 +1,20 @@
+# Configuração local — nunca versionar
+js/config.js
+
+# Segredos e ambiente
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Dependências e logs
+node_modules/
+npm-debug.log*
+*.log
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

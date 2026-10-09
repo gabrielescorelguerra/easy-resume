@@ -1,0 +1,156 @@
+/* Controles do painel de edição: botões, campos, cards e seções. */
+
+.bar {
+  position: sticky;
+  top: 0;
+  background: var(--panel);
+  padding: 14px 0 12px;
+  border-bottom: 1px solid var(--bd);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bar h1 {
+  font-size: 17px;
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+button,
+select {
+  font: inherit;
+  color: var(--tx);
+  background: var(--in);
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  border-color: var(--mut);
+}
+
+button.pri {
+  background: var(--ac, #1f5f9e);
+  border-color: var(--ac, #1f5f9e);
+  color: #fff;
+  font-weight: 600;
+}
+
+button.sm {
+  padding: 3px 8px;
+  font-size: 12px;
+}
+
+button.x {
+  color: #c0392b;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ac, #1f5f9e);
+  outline-offset: 1px;
+}
+
+input[type="color"] {
+  width: 38px;
+  height: 30px;
+  padding: 2px;
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  background: var(--in);
+  cursor: pointer;
+}
+
+.sw {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  padding: 0;
+  border: 2px solid var(--panel);
+  box-shadow: 0 0 0 1px var(--bd);
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  color: var(--mut);
+  margin-top: 8px;
+}
+
+input[type="text"],
+textarea {
+  display: block;
+  width: 100%;
+  margin-top: 3px;
+  font: inherit;
+  color: var(--tx);
+  background: var(--in);
+  border: 1px solid var(--bd);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.card {
+  border: 1px solid var(--bd);
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-top: 12px;
+}
+
+.card.in {
+  background: color-mix(in srgb, var(--bd) 18%, transparent);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 200px;
+}
+
+.hd {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+}
+
+.g2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.sec {
+  margin: 22px 0 4px;
+  font-size: 12px;
+  color: var(--mut);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.inl {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  font-size: 12px;
+}

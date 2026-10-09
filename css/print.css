@@ -1,0 +1,35 @@
+/* Impressão / "Baixar PDF": sai apenas a folha do currículo. */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 13mm 14mm;
+  }
+  html,
+  body {
+    height: auto;
+    background: #fff;
+  }
+  .ed {
+    display: none;
+  }
+  .app {
+    display: block;
+  }
+  .pv {
+    padding: 0;
+    overflow: visible;
+  }
+  .paper {
+    width: auto;
+    min-height: 0;
+    padding: 0;
+    box-shadow: none;
+    margin: 0;
+  }
+  .paper,
+  .paper * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
